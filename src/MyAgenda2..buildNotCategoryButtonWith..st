@@ -1,4 +1,4 @@
-!MyAgenda2 methodsFor: 'toolbuilder' stamp: 'mva 3/15/2016 19:23'!
+!MyAgenda2 methodsFor: 'toolbuilder' stamp: 'mva 3/18/2016 20:42'!
 buildNotCategoryButtonWith: builder
 	| panelSpec i |
 	panelSpec := builder pluggablePanelSpec new
@@ -9,8 +9,9 @@ buildNotCategoryButtonWith: builder
 
 	i := builder pluggableButtonSpec new.
 	i
+			horizontalResizing: #shrinkWrap;
 			model: self;
-			label: 'None of these';
+			label: 'Not';
 			help: 'Select "None of these" to add groups from "Groups Available" to the list below or to remove groups from the list below and place them back in "Groups Available" or to move groups from "All of these" to "None of these"' translated;
 			state: #askNotCategoriesSelected;
 			action: #askNotCategoriesSelectedCommand.

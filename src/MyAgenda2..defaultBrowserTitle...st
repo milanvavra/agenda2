@@ -1,4 +1,4 @@
-!MyAgenda2 methodsFor: 'initialize-release' stamp: 'mva 3/17/2016 17:56'!
+!MyAgenda2 methodsFor: 'initialize-release' stamp: 'mva 3/19/2016 02:25'!
 defaultBrowserTitle
-	^ 'MyAgenda2 v2.0'
+	^ 'MyAgenda v2.0.1'
 ! !

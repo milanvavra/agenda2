@@ -1,10 +1,10 @@
-!MyAgenda2 methodsFor: 'view' stamp: 'mva 3/17/2016 19:08'!
-askCategories4ListLabels
+!MyAgenda2 methodsFor: 'view' stamp: 'mva 3/19/2016 00:12'!
+askUpdateItems2List
 	| query args cols rows |
 
 	query := '
-	SELECT [Category.Number], [Category.Text] FROM [Category4] JOIN [Category]
-	ON ([Category.Number] = [Category*Number]);
+	SELECT [Item.Number], [Item.Text] FROM [Item2] JOIN [Item]
+	ON ([Item.Number] = [Item*Number]);
 	'.
 	args := {}.
 
@@ -17,5 +17,6 @@ askCategories4ListLabels
 		cols: cols
 		rows: rows.
 
+	varItems2List := rows.
 	^rows
 ! !

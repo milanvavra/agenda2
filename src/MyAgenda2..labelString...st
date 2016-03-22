@@ -1,4 +1,4 @@
-!MyAgenda2 methodsFor: 'initialize-release' stamp: 'mva 3/15/2016 20:11'!
+!MyAgenda2 methodsFor: 'initialize-release' stamp: 'mva 3/17/2016 19:09'!
 labelString
-	^self defaultBrowserTitle, ' - ', self askFileName askFileNameText
+	^self defaultBrowserTitle, ' - ', self askFileNameText
 ! !
