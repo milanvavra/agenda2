@@ -1,10 +1,15 @@
-!MyAgenda2 methodsFor: 'view' stamp: 'mva 3/19/2016 00:12'!
+!MyAgenda2 methodsFor: 'view' stamp: 'mva 3/24/2016 13:23'!
 askUpdateCategories1List
 	| query args cols rows |
 
 	query := '
-	SELECT [Category.Number], [Category.Text] FROM [Category1] JOIN [Category]
-	ON ([Category.Number] = [Category*Number]) ORDER BY [Category.Text];
+	SELECT DISTINCT [Category.Number], [Category.Text], COUNT(*)
+	FROM [Link]
+	JOIN [Item2] USING ([Item*Number])
+	JOIN [Category1] USING ([Category*Number])
+	JOIN [Category] ON ([Category.Number] = [Category*Number])
+	GROUP BY [Category.Number], [Category.Text]
+	ORDER BY [Category.Text];
 	'.
 	args := {}.
 
