@@ -1,13 +1,11 @@
-!MyAgenda2 methodsFor: 'controller' stamp: 'mva 3/16/2016 00:57'!
+!MyAgenda2 methodsFor: 'controller' stamp: 'mva 3/25/2016 14:56'!
 askSave
 	| tmpFileName |
 
-	tmpFileName := self askFileName askFileNameText.
+	tmpFileName := self askFileNameText.
 
 	FileStream newFileNamed: tmpFileName do:[ :tmpStream |
 			self
-				askItems: self askItemCategories keys
-				ItemCategories: self askItemCategories
-				StoreOn: tmpStream
+				askItemsItemCategoriesStoreOn: tmpStream
 		]
 ! !

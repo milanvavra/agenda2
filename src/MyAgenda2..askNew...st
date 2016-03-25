@@ -1,4 +1,4 @@
-!MyAgenda2 methodsFor: 'controller' stamp: 'mva 3/18/2016 15:12'!
+!MyAgenda2 methodsFor: 'controller' stamp: 'mva 3/25/2016 18:55'!
 askNew
 	self askDatabaseDeleteFromTables.
 "	self askItemCategories: nil.
@@ -9,7 +9,6 @@ askNew
 
 
 	self askUpdateSetsToDefault.
-
-	self askUpdateWindow
 "
+	self askUpdateWindow
 ! !

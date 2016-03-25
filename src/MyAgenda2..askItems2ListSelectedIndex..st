@@ -1,15 +1,22 @@
-!MyAgenda2 methodsFor: 'controller' stamp: 'mva 3/16/2016 01:43'!
+!MyAgenda2 methodsFor: 'controller' stamp: 'mva 3/24/2016 21:58'!
 askItems2ListSelectedIndex: tmpIndex
 
-	(thisContext sender sender sender methodSelector =  #keyStroke:
-	or: [tmpIndex = 0]) ifFalse: [
+	tmpIndex = 0 ifFalse: [
 
 	varItems2ListSelectedIndex := tmpIndex.
 	self
 		changed: #askItems2ListHasSelectedIndex;
 		changed: #askItems2ListSelectedIndex.
 
-	self askUpdateWindow.
+	self askUpdateCategories4.
+	self askUpdateCategories4List.
+	self askUpdateCategories4ListLabels.
+	self changed: #askCategories4ListLabels.
+
+	self askUpdateCategories5.
+	self askUpdateCategories5List.
+	self askUpdateCategories5ListLabels.
+	self changed: #askCategories5ListLabels.
 
 	^varItems2ListSelectedIndex
 	]

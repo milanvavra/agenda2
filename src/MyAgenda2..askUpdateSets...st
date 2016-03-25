@@ -1,4 +1,4 @@
-!MyAgenda2 methodsFor: 'view' stamp: 'mva 3/19/2016 00:16'!
+!MyAgenda2 methodsFor: 'view' stamp: 'mva 3/25/2016 19:02'!
 askUpdateSets
 	self askUpdateItems2.
 	self askUpdateItems2List.
@@ -17,4 +17,14 @@ askUpdateSets
 	self askUpdateNotCategoriesList.
 	self askUpdateNotCategoriesListLabels.
 	self changed: #askNotCategoriesListLabels.
+
+	self askUpdateCategories4.
+	self askUpdateCategories4List.
+	self askUpdateCategories4ListLabels.
+	self changed: #askCategories4ListLabels.
+
+	self askUpdateCategories5.
+	self askUpdateCategories5List.
+	self askUpdateCategories5ListLabels.
+	self changed: #askCategories5ListLabels.
 ! !
