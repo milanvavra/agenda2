@@ -1,4 +1,4 @@
-!MyAgenda2 methodsFor: 'toolbuilder' stamp: 'mva 3/18/2016 20:45'!
+!MyAgenda2 methodsFor: 'toolbuilder' stamp: 'mva 3/27/2016 04:01'!
 buildLowerButtonsWith: builder
 	| panelSpec b |
 	panelSpec := builder pluggablePanelSpec new
@@ -37,6 +37,28 @@ buildLowerButtonsWith: builder
 			help: 'Erase data in memory and Load data from text file named with "File"' translated;
 			state: nil;
 			action: #askLoad.
+
+	panelSpec children add: b.
+
+	b := builder pluggableButtonSpec new.
+	b
+			model: self;
+			label: 'SaveToDb';
+			horizontalResizing: #shrinkWrap;
+			help: 'Save data to db file' translated;
+			state: nil;
+			action: #askSaveToDb.
+
+	panelSpec children add: b.
+
+	b := builder pluggableButtonSpec new.
+	b
+			model: self;
+			label: 'LoadFromDb';
+			horizontalResizing: #shrinkWrap;
+			help: 'Erase data in memory and Load data db file' translated;
+			state: nil;
+			action: #askLoadFromDb.
 
 	panelSpec children add: b.
 

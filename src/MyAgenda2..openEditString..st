@@ -1,53 +1,36 @@
-!MyAgenda2 methodsFor: 'initialize-release' stamp: 'mva 3/16/2016 01:24'!
+!MyAgenda2 methodsFor: 'initialize-release' stamp: 'mva 3/29/2016 22:59'!
 openEditString: aString
 
-	| builder |
+	| windowSpec builder |
 	builder := ToolBuilder default.
-	^self buildWindowWith: builder specs: {
-		(LayoutFrame new leftFraction: 0 * 0.15; rightFraction: 1 * 0.15; topFraction: 0; bottomFraction: 0;
-			topOffset: 0;
-			bottomOffset: self buttonHeight;
-			yourself) -> [self buildAndCategoryButtonWith: builder].
-		(LayoutFrame new leftFraction: 0 * 0.15; rightFraction: 1 * 0.15; topFraction: 0; bottomFraction: 0.5;
-			topOffset: self buttonHeight;
-			bottomOffset: self buttonHeight negated;
-			yourself) -> [self buildAndCategoryListWith: builder].
+	windowSpec := self buildWindowWith: builder specs: {
+		(LayoutFrame fractions: (0@0 corner: 0.15@0) offsets: (0@0 corner: 0@self buttonHeight))
+			-> [self buildAndCategoryButtonWith: builder].
 
-		(LayoutFrame new leftFraction: 0 * 0.15; rightFraction: 1 * 0.15; topFraction: 0.5; bottomFraction: 0.5;
-			topOffset: self buttonHeight negated;
-			bottomOffset: 0;
-			yourself) -> [self buildNotCategoryButtonWith: builder].
-		(LayoutFrame new leftFraction: 0 * 0.15; rightFraction: 1 * 0.15; topFraction: 0.5; bottomFraction: 1.0;
-			topOffset: 0;
-			bottomOffset: self buttonHeight negated;
-			yourself) -> [self buildNotCategoryListWith: builder].
+		(LayoutFrame fractions: (0@0 corner: 0.15@0.5) offsets: (0@self buttonHeight corner: 0@self buttonHeight negated))
+			-> [self buildAndCategoryListWith: builder].
 
+		(LayoutFrame fractions: (0@0.5 corner: 0.15@0.5) offsets: (0@self buttonHeight negated corner: 0@0))
+			-> [self buildNotCategoryButtonWith: builder].
 
-		(LayoutFrame new leftFraction: 1 * 0.15; rightFraction: 2 * 0.15; topFraction: 0; bottomFraction: 1.0;
-			topOffset: 0;
-			bottomOffset: self buttonHeight negated;
-			yourself) -> [self buildAvailableCategoryListWith: builder].
+		(LayoutFrame fractions: (0@0.5 corner: 0.15@1.0) offsets: (0@0 corner: 0@self buttonHeight negated))
+			-> [self buildNotCategoryListWith: builder].
 
+		(LayoutFrame fractions: (0.15@0 corner: 0.3@1.0) offsets: (0@0 corner: 0@self buttonHeight negated))
+			-> [self buildAvailableCategoryListWith: builder].
 
-		(LayoutFrame new leftFraction: 2 * 0.15; rightFraction: 2 * 0.15 + 0.4; topFraction: 0; bottomFraction: 1.0;
-			topOffset: 0;
-			bottomOffset: self buttonHeight negated;
-			yourself) -> [self buildItemListWith: builder].
+		(LayoutFrame fractions: (0.3@0 corner: 0.7@1.0) offsets: (0@0 corner: 0@self buttonHeight negated))
+			-> [self buildItemListWith: builder].
 
-		(LayoutFrame new leftFraction: 0.7; rightFraction: 0.7 + 0.15; topFraction: 0; bottomFraction: 1.0;
-			topOffset: 0;
-			bottomOffset: self buttonHeight negated;
-			yourself) -> [self buildMemberCategoryListWith: builder].
+		(LayoutFrame fractions: (0.7@0 corner: 0.85@1.0) offsets: (0@0 corner: 0@self buttonHeight negated))
+			-> [self buildMemberCategoryListWith: builder].
 
-		(LayoutFrame new leftFraction: 0.85; rightFraction: 1.0; topFraction: 0; bottomFraction: 1.0;
-			topOffset: 0;
-			bottomOffset: self buttonHeight negated;
-			yourself) -> [self buildNotMemberCategoryListWith: builder].
+		(LayoutFrame fractions: (0.85@0 corner: 1.0@1.0) offsets: (0@0 corner: 0@self buttonHeight negated))
+			-> [self buildNotMemberCategoryListWith: builder].
 
-
-		(LayoutFrame new leftFraction: 0; rightFraction: 1; topFraction: 1.0; bottomFraction: 1.0;
-			topOffset: self buttonHeight negated;
-			bottomOffset: 0;
-			yourself) -> [self buildLowerButtonsWith: builder].
-	}
+		(LayoutFrame fractions: (0@1.0 corner: 1.0@1.0) offsets: (0@self buttonHeight negated corner: 0@0))
+			-> [self buildLowerButtonsWith: builder].
+	}.
+	windowSpec closeAction: #askCloseAction.
+	^windowSpec
 ! !

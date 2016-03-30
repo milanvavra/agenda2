@@ -1,4 +1,4 @@
-!MyAgenda2 methodsFor: 'controller' stamp: 'mva 3/18/2016 12:43'!
+!MyAgenda2 methodsFor: 'controller' stamp: 'mva 3/25/2016 23:02'!
 askLoad
 	| tmpFileName tmpCharCount tmpRowCount tmpColCount tmpLine tmpItemText tmpItemUrlText tmpChar tmpCategoryText tmpItemNumber tmpCategoryNumber query args cols rows tmpCategoryNumberC tmpTimeToRun |
 	tmpFileName := self askFileNameText.
@@ -85,7 +85,7 @@ tmpTimeToRun := [
 	Transcript show: 'lines: '; show: tmpRowCount ; cr.
 	Transcript show: 'chars: '; show: tmpCharCount ; cr.
 
-
+	self askUpdateWindow
 
 ] fork
 
