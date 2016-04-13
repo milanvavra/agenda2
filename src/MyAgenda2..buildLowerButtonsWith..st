@@ -1,4 +1,4 @@
-!MyAgenda2 methodsFor: 'toolbuilder' stamp: 'mva 3/27/2016 04:01'!
+!MyAgenda2 methodsFor: 'toolbuilder' stamp: 'mva 4/10/2016 20:54'!
 buildLowerButtonsWith: builder
 	| panelSpec b |
 	panelSpec := builder pluggablePanelSpec new
@@ -73,6 +73,27 @@ buildLowerButtonsWith: builder
 
 	panelSpec children add: b.
 
+	b := builder pluggableButtonSpec new.
+	b
+			model: self;
+			label: 'New Item';
+			horizontalResizing: #shrinkWrap;
+			help: 'Create New Item' translated;
+			state: nil;
+			action: #askNewItem.
+
+	panelSpec children add: b.
+
+	b := builder pluggableButtonSpec new.
+	b
+			model: self;
+			label: 'New Category';
+			horizontalResizing: #shrinkWrap;
+			help: 'Create a new category. Assign it to selected item' translated;
+			state: nil;
+			action: #askNewCategory.
+
+	panelSpec children add: b.
 
 	^panelSpec
 ! !

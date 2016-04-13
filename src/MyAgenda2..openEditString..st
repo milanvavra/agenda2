@@ -1,4 +1,4 @@
-!MyAgenda2 methodsFor: 'initialize-release' stamp: 'mva 3/29/2016 22:59'!
+!MyAgenda2 methodsFor: 'initialize-release' stamp: 'mva 4/10/2016 01:58'!
 openEditString: aString
 
 	| windowSpec builder |
@@ -19,7 +19,10 @@ openEditString: aString
 		(LayoutFrame fractions: (0.15@0 corner: 0.3@1.0) offsets: (0@0 corner: 0@self buttonHeight negated))
 			-> [self buildAvailableCategoryListWith: builder].
 
-		(LayoutFrame fractions: (0.3@0 corner: 0.7@1.0) offsets: (0@0 corner: 0@self buttonHeight negated))
+		(LayoutFrame fractions: (0.3@0 corner: 0.7@0.1) offsets: (0@0 corner: 0@0))
+			-> [self buildSelectedItemListWith: builder].
+
+		(LayoutFrame fractions: (0.3@0.1 corner: 0.7@1.0) offsets: (0@0 corner: 0@self buttonHeight negated))
 			-> [self buildItemListWith: builder].
 
 		(LayoutFrame fractions: (0.7@0 corner: 0.85@1.0) offsets: (0@0 corner: 0@self buttonHeight negated))

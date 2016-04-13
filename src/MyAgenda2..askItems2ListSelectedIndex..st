@@ -1,9 +1,11 @@
-!MyAgenda2 methodsFor: 'controller' stamp: 'mva 3/24/2016 21:58'!
+!MyAgenda2 methodsFor: 'controller' stamp: 'mva 4/10/2016 10:49'!
 askItems2ListSelectedIndex: tmpIndex
 
 	tmpIndex = 0 ifFalse: [
 
 	varItems2ListSelectedIndex := tmpIndex.
+	self askUpdateSelectedItemListLabels.
+
 	self
 		changed: #askItems2ListHasSelectedIndex;
 		changed: #askItems2ListSelectedIndex.

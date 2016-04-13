@@ -1,4 +1,4 @@
-!MyAgenda2 methodsFor: 'controller' stamp: 'mva 3/28/2016 13:58'!
+!MyAgenda2 methodsFor: 'controller' stamp: 'mva 4/9/2016 21:50'!
 askOpenUrl: tmpUrl
 	| tmp1001 |
 
@@ -19,6 +19,6 @@ askOpenUrl: tmpUrl
 
 	tmp1001 = 'Win32'
 	ifTrue: [
-		Win32Shell shellOpen: tmpUrl.
+		Win32Shell new shellOpen: tmpUrl.
 	].
 ! !
